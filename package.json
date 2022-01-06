@@ -5,7 +5,7 @@
   "main": "./app/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./app/sass/default.scss ./app/style.css --style compressed",
+    "sass": "sass --watch ./app/style/sass/default.scss ./app/style/css/style.css --style compressed",
     "format": "prettier --write 'app/src/script.js'"
   },
   "keywords": [],
