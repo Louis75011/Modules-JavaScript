@@ -1,0 +1,5 @@
+# Files not push
+.DS_Store
+.vscode
+.prettierrc.json
+node_modules

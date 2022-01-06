@@ -1,0 +1,21 @@
+{
+  "name": "js-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./app/sass/default.scss ./app/style.css --style compressed",
+    "format": "prettier --write 'app/src/script.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "sass": "^1.46.0"
+  },
+  "devDependencies": {
+    "prettier": "2.5.1"
+  }
+}
