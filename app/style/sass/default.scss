@@ -1,21 +1,27 @@
 // Mixin for DRY
 @mixin center {
+    display: flex;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-@mixin titles-text($number) {
+@mixin title-text-t($number) {
     font-size: $number;
 }
 
-@mixin separation {
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 4px solid #26D0CE;
+@mixin title-text {
+    text-align: center;
+    margin: 50px auto 0;
 }
 
 // Style Sheet Nested
+.info {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 4px solid #26D0CE;
+}
+
 body {
     @include center;
     margin: 10px;
@@ -29,15 +35,13 @@ body {
 
     // MODULE JEU DE MORPION
     h2 {
-        @include titles-text(40px);
-        text-align: center;
-        margin: 50px auto 0;
+        @include title-text-t(40px);
+        @include title-text;
     }
 
     p {
-        @include titles-text(30px);
-        text-align: center;
-        margin: 50px auto 0;
+        @include title-text-t(30px);
+        @include title-text;
     }
 
     .container {
@@ -49,7 +53,7 @@ body {
     }
 
     .cell {
-        @include titles-text(55px);
+        @include title-text-t(55px);
         width: 100px;
         height: 100px;
         color: #f1f1f1;
@@ -60,7 +64,16 @@ body {
         text-align: center;
         align-items: center;
     }
-    .info {
-        @include separation();
+
+    // MODULE VISUALISATEUR AUDIO
+    audio {
+        @include center;
+    }    
+    #canvas {
+        // Adaptation d'écran
+        @include center;
+        margin-top: 2rem;
+        width: 60% !important;
+        background: #000;
     }
 }
