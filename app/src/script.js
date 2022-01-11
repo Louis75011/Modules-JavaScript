@@ -1,12 +1,17 @@
 // Fonction lancée au chargement de la page
 document.addEventListener("DOMContentLoaded", function () {
-  insertHtmlMorpion();
+  insertHtml();
 });
 
-function insertHtmlMorpion() {
-  // MODULE JEU DU MORPION - INJECTION HTML
+function insertHtml() {
+  
   const docHtml = document.getElementById("app");
   let html = `
+  <header>
+    <h1>Modules JavaScript</h1>
+  </header>
+
+  // MODULE JEU DU MORPION - INJECTION HTML
   <section>
     <h2>Jeu du morpion</h2>
         <div class="container">
@@ -21,6 +26,27 @@ function insertHtmlMorpion() {
             <div class="cell" data-index="8"></div>
         </div>
         <p class="info"></p>
+    </section>
+
+    // MODULE VISUALISATEUR AUDIO - INJECTION HTML
+    <section>
+          <h2>Visualisateur audio</h2>
+            <canvas id="canvas"></canvas>
+            <audio src="assets/RodrigoyGabriela-Tamacun.mp3" controls></audio>
+            <div class="info"></div>
+    </section>
+
+    // MODULE TYPING GAME - INJECTION HTML
+    <section>
+        <h2>Typing game</h2>
+        <p class="temps">Temps restant :</p>
+        <p class="score">Points acumulés :</p>
+    
+        <div class="container-tg">
+            <div class="phraseAEcrire"></div>
+            <textarea class="phrase-test" autofocus></textarea>
+        </div>
+        <div class="info"></div>
     </section>
           `;
   docHtml.innerHTML += html;
@@ -111,21 +137,6 @@ function insertHtmlMorpion() {
     info.innerText = `Au tour du joueur de ${joueurEnCours}`;
   }
 
-  function insertHtmlVisualisateur() {
-    // MODULE VISUALISATEUR AUDIO - INJECTION HTML
-    const docHtmlV = document.getElementById("app");
-    let htmlV = `
-        <section>
-          <h2>Visualisateur audio</h2>
-            <canvas id="canvas"></canvas>
-            <audio src="assets/RodrigoyGabriela-Tamacun.mp3" controls></audio>
-            <div class="info"></div>
-        </section>
-            `;
-    docHtmlV.innerHTML += htmlV;
-  }
-  insertHtmlVisualisateur();
-
   // MODULE VISUALISATEUR AUDIO - PROGRAMMATION JAVASCRIPT
   const audioPlayer = document.querySelector("audio");
   audioPlayer.addEventListener("play", () => {
@@ -187,20 +198,86 @@ function insertHtmlMorpion() {
     dessineBarres();
   });
 
-  /*
-  function insertHtmlVisualisateur() {
-    // MODULE VISUALISATEUR AUDIO - INJECTION HTML
-    const docHtmlV = document.getElementById("app");
-    let htmlV = `
-        <section>
-          <h2>Visualisateur audio</h2>
-            <canvas id="canvas"></canvas>
-            <audio src="assets/RodrigoyGabriela-Tamacun.mp3" controls></audio>
-            <div class="info"></div>
-        </section>
-            `;
-    docHtmlV.innerHTML += htmlV;
+  // MODULE TYPING GAME - PROGRAMMATION JAVASCRIPT
+  const APICALL = "http://api.quotable.io/random";
+  // Affichage complet de nos paragraphes
+  const tempsAffichage = document.querySelector(".temps");
+  const scoreAffichage = document.querySelector(".score");
+
+  const phraseAEcrire = document.querySelector(".phraseAEcrire");
+  const phraseTest = document.querySelector(".phrase-test");
+
+  let temps = 60; // Timer d'une minute
+  let score = 0; // Initialiser point à zéro
+  let phrasePourScore;
+
+  tempsAffichage.innerText = `Temps : ${temps}`;
+  scoreAffichage.innerText = `Score : ${score}`;
+
+  let timer = setInterval(time, 1000);
+
+  // Décrémentation progressive du minuteur
+  function time() {
+    temps--;
+    tempsAffichage.innerText = `Temps : ${temps}`;
+    scoreAffichage.innerText = `Score : ${score}`;
+    if (temps === 0) {
+      clearInterval(timer); // Le timer s'arrête à 0 seconde
+    }
   }
-  insertHtmlVisualisateur();
-  */
+
+  // Prendre une phrase de l'API
+  async function afficherNvPhrase() {
+    const appel = await fetch(APICALL); // Attendre le résultat de notre API
+    const resultats = await appel.json();
+    // console.log(resultats);
+    const phrase = resultats.content;
+
+    phrasePourScore = phrase.length;
+    phraseAEcrire.innerHTML = "";
+
+    // Couper chaque caractère dans un tableau à afficher en span
+    phrase.split("").forEach((carac) => {
+      // Prendre la phrase
+      const caracSpan = document.createElement("span");
+      caracSpan.innerText = carac;
+      phraseAEcrire.appendChild(caracSpan); // Ajout pour chaque phrase
+    });
+
+    phraseTest.value = null;
+  }
+
+  afficherNvPhrase();
+
+  // Quand on écrit dans l'input
+  phraseTest.addEventListener("input", () => {
+    const tableauPhrase = phraseAEcrire.querySelectorAll("span");
+    const tableauTest = phraseTest.value.split("");
+    let correct = true;
+
+    // tableau de chaque vérification de phrase
+    tableauPhrase.forEach((caracSpan, index) => {
+      // console.log(caracSpan);
+      const caractere = tableauTest[index]; // Checker chaque lettre
+
+      if (caractere === undefined) {
+        // Lettre correcte en vert et incorrecte en rouge
+        caracSpan.classList.remove("correct");
+        caracSpan.classList.remove("incorrect");
+        correct = false;
+      } else if (caractere === caracSpan.innerText) {
+        caracSpan.classList.add("correct");
+        caracSpan.classList.remove("incorrect");
+      } else {
+        caracSpan.classList.remove("correct");
+        caracSpan.classList.add("incorrect");
+        correct = false;
+      }
+    });
+
+    if (correct) {
+      afficherNvPhrase();
+      score += phrasePourScore;
+    }
+  });
 }

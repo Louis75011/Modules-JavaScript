@@ -1,6 +1,8 @@
 // Mixin for DRY
 @mixin center {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -12,7 +14,6 @@
 
 @mixin title-text {
     text-align: center;
-    margin: 50px auto 0;
 }
 
 // Style Sheet Nested
@@ -31,9 +32,10 @@ body {
 
     h1 {
         color: #f1f1f1;
+        @include title-text-t(50px);
+        @include title-text;
     }
 
-    // MODULE JEU DE MORPION
     h2 {
         @include title-text-t(40px);
         @include title-text;
@@ -43,6 +45,9 @@ body {
         @include title-text-t(30px);
         @include title-text;
     }
+
+    // MODULE JEU DE MORPION
+
 
     .container {
         display: grid;
@@ -68,12 +73,51 @@ body {
     // MODULE VISUALISATEUR AUDIO
     audio {
         @include center;
+        max-width: 60%;
     }    
     #canvas {
         // Adaptation d'écran
         @include center;
         margin-top: 2rem;
-        width: 60% !important;
+        width: 90% !important;
+        max-width: 50%;
         background: #000;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    // MODULE TYPING GAME
+    .container-tg {
+        background: #f1f1f1;
+        padding: 15px;
+        border-radius: 10px;
+        // width: 900px;
+        max-width: 50%;
+        margin: 50px auto 0;
+        color: #333;
+    }
+    .phraseAEcrire {
+        margin: 20px 10px;
+        font-size: 22px;
+    }
+    
+    .phrase-test {
+        background-color: transparent;
+        border: 2px solid #333;
+        font-size: 30px;
+        color: #333;
+        width: 80%;
+        resize: none;
+        padding: 30px;
+        // font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .correct {
+        color: green;
+    }
+    
+    .incorrect {
+        color: red;
+        text-decoration: underline;
     }
 }
