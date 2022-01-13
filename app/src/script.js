@@ -10,7 +10,6 @@ function insertHtml() {
   <header>
     <h1>Modules JavaScript</h1>
   </header>
-
   <section id="jm">
     <h2>Jeu du morpion</h2>
     
@@ -28,18 +27,6 @@ function insertHtml() {
         <p class="info"></p>
     </section>
 
-    <section id="tg">
-        <h2>Typing game</h2>
-
-        <p class="temps">Temps restant :</p>
-        <p class="score">Points acumulés :</p>
-        <div class="container-tg">
-            <div class="phraseAEcrire"></div>
-            <textarea class="phrase-test" autofocus></textarea>
-        </div>
-        <div class="info"></div>
-    </section>
-
     <section id="cb">
       <h2>Le casse-briques</h2>
 
@@ -49,21 +36,62 @@ function insertHtml() {
       <div class="info"></div>
     </section>
 
-    <section id="si">
-      <h2>Jeu Space-Invaders</h2>
+    <section id="tg">
+      <h2>Typing game</h2>
 
-      <div class="grille"></div>
-      <p>Jouer avec fleches horizontales et barre espace</p>
-      <p id="si-score">Score : </p>
+      <p class="temps">Temps restant :</p>
+      <p class="score">Points acumulés :</p>
+      <div class="container-tg">
+          <div class="phraseAEcrire"></div>
+          <textarea class="phrase-test" autofocus></textarea>
+      </div>
       <div class="info"></div>
     </section>
 
-    <section id="nm">
-      <h2>NOUVEAU MODULE</h2>
-
-
+    <section id="dd">
+      <h2>Drag & Drop application :</h2>
+      
+      <div class="container-choix">
+          <div class="case" id="premiere-case">
+              <div class="base" draggable="true"></div>
+          </div>
+          <div id="destroy" class="destroy">Supprimer</div>
+      </div>
+      <!-- Trois cases à remplir -->
+      <div class="container-cases">
+          <div class="case"></div>
+          <div class="case"></div>
+          <div class="case"></div>
+      </div>
+      <p>Sélectionnez vos 3 photos aléatoires préférées</p>
       <div class="info"></div>
     </section>
+
+    <section id="ms">
+    <h2>Mon slider :</h2>
+
+      <div class="slider">
+        <div class="cont-slides">
+          <img src="./assets/imgs/img1.jpg" class="active">
+          <img src="./assets/imgs/img2.jpg" >
+          <img src="./assets/imgs/img3.jpg" >
+        </div>
+      <div class="commandes">
+        <button class="left">
+          <img src="./assets/imgs/left.svg">
+        </button>
+        <button class="right">
+          <img src="./assets/imgs/right.svg">
+        </button>
+      </div>
+      <div class="cercles">
+        <button data-clic="1" class="cercle active-cercle"></button>
+        <button data-clic="2" class="cercle"></button>
+        <button data-clic="3" class="cercle"></button>
+      </div>
+    </div>
+    <div class="info"></div>
+  </section>
 
     <section id="va">
       <h2>Visualisateur audio</h2>
@@ -75,7 +103,7 @@ function insertHtml() {
 
     <section id="lv">
       <h2>Lecteur vidéo</h2>
-
+      
       <div class="container-video">
           <video src="assets/ressources/video.mp4" class="video"></video>
           <div class="controls">
@@ -94,6 +122,15 @@ function insertHtml() {
               </div>
           </div>
       </div>
+      <div class="info"></div>
+    </section>
+
+    <section id="si">
+      <h2>Jeu Space-Invaders</h2>
+
+      <div class="grille"></div>
+      <p>Jouer avec fleches horizontales et barre espace</p>
+      <p id="si-score">Score : </p>
       <div class="info"></div>
     </section>
           `;
@@ -194,7 +231,7 @@ function insertHtml() {
   // Définition de balle, barre, briques
   const rayonBalle = 5,
     barreHeight = 5,
-    barreWidth = 55,
+    barreWidth = 65,
     nbCol = 6,
     nbRow = 2,
     largeurBrique = 35,
@@ -562,6 +599,171 @@ function insertHtml() {
     }
   }
   document.addEventListener("keyup", tirer);
+
+  // MODULE DRAG & DROP - PROGRAMMATION JAVASCRIPT
+  let base = document.querySelector(".base");
+  const premiereCase = document.getElementById("premiere-case");
+  const boxs = document.querySelectorAll(".case");
+  const destroy = document.querySelector(".destroy");
+  const allCases = [];
+  // Cases et photos choisies
+  const choix = [];
+  let photoEnCours;
+
+  for (i = 0; i < boxs.length; i++) {
+    allCases.push(boxs[i]);
+    // Toutes nos cases sont ajoutés dans un tableau
+  }
+  allCases.push(destroy);
+  let indexPhoto = 1;
+
+  // Image de chats aléatoires
+  base.style.backgroundImage = `url(https://loremflickr.com/320/240?random=${indexPhoto})`;
+  photoEnCours = `url(https://loremflickr.com/320/240?random=${indexPhoto})`;
+
+  function nvBase() {
+    // On crée cet élément et il doit être possible de le "drag"
+    const newBase = document.createElement("div");
+    newBase.setAttribute("class", "base");
+    newBase.setAttribute("draggable", "true");
+    // Nouvelle valeur pour la photo suivante
+    indexPhoto++;
+    newBase.style.backgroundImage = `url(https://loremflickr.com/320/240?random=${indexPhoto})`;
+    photoEnCours = `url(https://loremflickr.com/320/240?random=${indexPhoto})`;
+    premiereCase.appendChild(newBase);
+    base = newBase;
+  }
+
+  // Ecouter l'évnèment de toutes nos cases
+  for (const vide of allCases) {
+    vide.addEventListener("dragover", dragOver);
+    vide.addEventListener("dragenter", dragEnter);
+    vide.addEventListener("drop", dragDrop);
+  }
+
+  // Créer les fonctions ajouter en second paramètre de notre AddEventListener
+  function dragOver(e) {
+    e.preventDefault();
+  }
+  function dragEnter(e) {
+    e.preventDefault();
+  }
+
+  function dragDrop() {
+    // Permet de lâcher l'élément
+    if (this.id === "premiere-case") {
+      return;
+    }
+    // Si l'image est à la poubelle, on la supprime
+    console.log(this.id === "destroy");
+    // destroy
+    if (this.id === "destroy") {
+      base.remove();
+      nvBase(); // Pour qu'une nouvelle image revienne en case de base ensuite
+      return;
+    }
+
+    // Verouillage (l'image se fixera dans les 3 emplacements)
+    this.removeEventListener("drop", dragDrop);
+    this.removeEventListener("dragenter", dragEnter);
+    this.removeEventListener("dragover", dragOver);
+
+    this.appendChild(base);
+    // Rien ne peut être "drag" sur le premier enfant (cases du bas)
+    this.childNodes[0].setAttribute("draggable", false);
+    nvBase();
+
+    // Actualiser 3 choix maximal dans notre tableau
+    choix.push(photoEnCours);
+    if (choix.length === 3) {
+      setTimeout(() => {
+        alert("Votre sélection est terminée !");
+      }, 200);
+    }
+  }
+
+  // MODULE SLIDER - PROGRAMMATION JAVASCRIPT
+  // Sélection de toutes les images, boutons et cercles
+  const imgs = document.querySelectorAll(".cont-slides img");
+  const suivant = document.querySelector(".right");
+  const precedent = document.querySelector(".left");
+  const cercles = document.querySelectorAll(".cercle");
+
+  // Index à zéro, qui passe au suivant à chaque clic
+  let index = 0;
+  suivant.addEventListener("click", slideSuivante);
+
+  function slideSuivante() {
+    // Slide fonctionne tant qu'on ne dépasse pas trois éléments
+    if (index < 2) {
+      imgs[index].classList.remove("active");
+      index++;
+      imgs[index].classList.add("active");
+    } else if (index === 2) {
+      // On revient à l'image zéro quand on a fait le tour
+      imgs[index].classList.remove("active");
+      index = 0;
+      imgs[index].classList.add("active");
+    }
+
+    // Actualiser l'image lorsque les cercles sont cliqués et non les boutons
+    for (i = 0; i < cercles.length; i++) {
+      if (cercles[i].getAttribute("data-clic") - 1 === index) {
+        cercles[i].classList.add("active-cercle");
+      } else {
+        cercles[i].classList.remove("active-cercle");
+      }
+    }
+  }
+
+  // Même application pour la slide précédente
+  precedent.addEventListener("click", slidePrecedente);
+
+  function slidePrecedente() {
+    if (index > 0) {
+      imgs[index].classList.remove("active");
+      index--;
+      imgs[index].classList.add("active");
+    } else if (index === 0) {
+      imgs[index].classList.remove("active");
+      index = 2;
+      imgs[index].classList.add("active");
+    }
+    for (i = 0; i < cercles.length; i++) {
+      if (cercles[i].getAttribute("data-clic") - 1 === index) {
+        cercles[i].classList.add("active-cercle");
+      } else {
+        cercles[i].classList.remove("active-cercle");
+      }
+    }
+  }
+  // Possible de slider avec les fleches horizontales
+  document.addEventListener("keydown", keyPressed);
+
+  function keyPressed(e) {
+    if (e.keyCode === 37) {
+      slidePrecedente();
+    } else if (e.keyCode === 39) {
+      slideSuivante();
+    }
+  }
+
+  // Cercles pour slider
+  // Pour chaque cercle on est à l'écoute d'un clic
+  cercles.forEach((cercle) => {
+    cercle.addEventListener("click", function () {
+      // Quand on clic sur un cercle, la classe active est retirée de tous les cercles
+      for (let i = 0; i < cercles.length; i++) {
+        cercles[i].classList.remove("active-cercle");
+      }
+      this.classList.add("active-cercle");
+
+      imgs[index].classList.remove("active");
+      // On met la nouvelle image cliquée
+      index = this.getAttribute("data-clic") - 1;
+      imgs[index].classList.add("active");
+    });
+  });
 
   // MODULE VISUALISATEUR AUDIO - PROGRAMMATION JAVASCRIPT
   const audioPlayer = document.querySelector("audio");
