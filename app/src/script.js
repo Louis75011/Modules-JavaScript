@@ -27,6 +27,136 @@ function insertHtml() {
         <p class="info"></p>
     </section>
 
+    <section id="jm">
+      <h2>Jeu des cartes mémoires</h2>
+
+      <div class="grille2">
+        <div class="carte2" data-attr="banana">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/banana.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+
+        <div class="carte2" data-attr="apple">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/apple.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+
+        <div class="carte2" data-attr="apple">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/apple.svg" alt="apple">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="banana">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/banana.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="brocoli">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/brocoli.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="cherry">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/cherry.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="pepper">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/pepper.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="pepper">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/pepper.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="cherry">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/cherry.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="brocoli">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/brocoli.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="straw">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/straw.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+        <div class="carte2" data-attr="straw">
+            <div class="double-face">
+                <div class="face">
+                    <img src="./assets/ressources/straw.svg">
+                </div>
+                <div class="arriere">
+                    ❓
+                </div>
+            </div>
+        </div>
+    </div>
+      <p class="info"></p>
+    </section>
+
     <section id="cb">
       <h2>Le casse-briques</h2>
 
@@ -72,16 +202,16 @@ function insertHtml() {
 
       <div class="slider">
         <div class="cont-slides">
-          <img src="./assets/imgs/img1.jpg" class="active">
-          <img src="./assets/imgs/img2.jpg" >
-          <img src="./assets/imgs/img3.jpg" >
+          <img src="./assets/ressources/img1.jpg" class="active">
+          <img src="./assets/ressources/img2.jpg" >
+          <img src="./assets/ressources/img3.jpg" >
         </div>
       <div class="commandes">
         <button class="left">
-          <img src="./assets/imgs/left.svg">
+          <img src="./assets/ressources/left.svg">
         </button>
         <button class="right">
-          <img src="./assets/imgs/right.svg">
+          <img src="./assets/ressources/right.svg">
         </button>
       </div>
       <div class="cercles">
@@ -97,7 +227,7 @@ function insertHtml() {
       <h2>Visualisateur audio</h2>
 
       <canvas id="canvas"></canvas>
-      <audio src="assets/RodrigoyGabriela-Tamacun.mp3" controls></audio>
+      <audio src="assets/ressources/RodrigoyGabriela-Tamacun.mp3" controls></audio>
       <div class="info"></div>
     </section>
 
@@ -123,6 +253,90 @@ function insertHtml() {
           </div>
       </div>
       <div class="info"></div>
+    </section>
+
+    <section id="ap">
+        <h2>Application Pomodoro</h2>
+
+        <div class="affichage2">
+            <div class="bloc travail">
+                <p>Travail</p>
+                <p class="affichageT"></p>
+            </div>
+            <div class="bloc pause">
+                <p>Repos</p>
+                <p class="affichageP"></p>
+            </div>
+        </div>
+        <div class="container-btns">
+            <button class="btn b1">Commencer</button>
+            <button class="btn b2">Pause</button>
+            <button class="btn b3">Reset</button>
+        </div>
+        <p></p>
+        <div class="info"></div>
+    </section>
+
+    <section id="tdl">
+        <h2>To-do liste JavaScript</h2>
+        <form>
+            <label for="item">Entrez une action</label>
+            <input type="text" id="item" placeholder="Entrez une action">
+            <button type="submit">Envoyer le formulaire</button>
+        </form>
+        <ul class="liste-todo">
+        </ul>
+        <div class="info"></div>
+    </section>
+
+    <section id="ru">
+      <h2>Recherche d'utilisateur Github API</h2>
+
+    <form class="form-github-recherche">
+        <input type="text" class="inp-recherche" placeholder="Recherche un utilisateur de Github !">
+    </form>
+    <div class="affichage">
+    </div>
+      <div class="info"></div>
+    </section>
+
+    <section id="vf">
+            <h2>Validation de formulaire</h2>
+
+            <div class="box-login">
+            <form>
+                <div class="form-groupe">
+                    <label for="utilisateur">Nom d'utilisateur</label>
+                    <input type="text" id="utilisateur" placeholder="Nom d'utilisateur" maxlength="24">
+                    <img src="./assets/ressources/check.svg" alt="icone de validation" class="icone-verif">
+                    <span class="message-alerte">Choisissez un pseudo entre 3 et 24 caractères</span>
+                </div>
+                <div class="form-groupe">
+                    <label for="email">Entrez votre mail</label>
+                    <input type="email" id="email" placeholder="Votre mail">
+                    <img src="./assets/ressources/check.svg" alt="icone de validation" class="icone-verif">
+                    <span class="message-alerte">Rentrez un email valide.</span>
+                </div>
+                <div class="form-groupe">
+                    <label for="mdp">Mot de passe</label>
+                    <input type="password" id="mdp" placeholder="Mot de passe">
+                    <img src="./assets/ressources/check.svg" alt="icone de validation" class="icone-verif">
+                    <span class="message-alerte">Un symbole, une lettre minuscule, un chiffre.</span>
+                    <div class="ligne">
+                        <div class="l1"><span>faible</span></div>
+                        <div class="l2"><span>moyen</span></div>
+                        <div class="l3"><span>fort</span></div>
+                    </div>
+                </div>
+                <div class="form-groupe">
+                    <label for="mdpconf">Confirmer le mot de passe</label>
+                    <input type="password" id="mdpconf" placeholder="Confirmez">
+                    <img src="./assets/ressources/check.svg" alt="icone de validation" class="icone-verif">
+                </div>
+                <button type="submit">Création du compte</button>
+            </form>
+        </div>
+        <div class="info"></div>
     </section>
 
     <section id="si">
@@ -645,6 +859,7 @@ function insertHtml() {
   function dragOver(e) {
     e.preventDefault();
   }
+
   function dragEnter(e) {
     e.preventDefault();
   }
@@ -655,7 +870,7 @@ function insertHtml() {
       return;
     }
     // Si l'image est à la poubelle, on la supprime
-    console.log(this.id === "destroy");
+    // console.log(this.id === "destroy");
     // destroy
     if (this.id === "destroy") {
       base.remove();
@@ -922,6 +1137,7 @@ function insertHtml() {
   // Au clic sur la vidéo, si la vidéo et sur pause alors play, et inversement
   btnPausePlay.addEventListener("click", togglePlayPause);
   video.addEventListener("click", togglePlayPause);
+
   function togglePlayPause() {
     if (video.paused) {
       img.src = "../app/assets/ressources/pause.svg";
@@ -987,24 +1203,404 @@ function insertHtml() {
     video.requestFullscreen();
   });
 
-  /*
-  <div class="container-video">
-          <video src="assets/ressources/video.mp4" class="video"></video>
-          <div class="controls">
-              <div class="barre-orange">
-                  <div class="juice"></div>
-              </div>
-              <div class="buttons">
-                  <button id="play-pause">
-                      <img src="assets/ressources/play.svg">
-                  </button>
-                  <button id="mute">Mute</button>
-                  <input type="range" id="volume-slider" min="0" max="100" value="50" step="1">
-                  <button id="fullscreen">
-                      <img src="assets/ressources/fullscreen.svg">
-                  </button>
-              </div>
-          </div>
-      </div>
-  */
+  // APPLICATION POMODORO - PROGRAMMATION JAVASCRIPT
+  const affichageTravail = document.querySelector(".affichageT");
+  const affichagePause = document.querySelector(".affichageP");
+  const btnGo = document.querySelector(".b1");
+  const btnPause = document.querySelector(".b2");
+  const btnReset = document.querySelector(".b3");
+  const cycles = document.querySelector("p");
+
+  let checkInterval = false;
+  let tempsInitial = 1800; // 1800 secondes font 30 minutes
+  let tempsDeRepos = 300;
+  let pause = false;
+  let nbDeCycles = 0;
+  cycles.innerText = `Nombre de cycles ${nbDeCycles}`; // Dans <p></p> ajouter le nombre de cycles passés
+
+  // Trunc enlève les chiffres après la virgule (Deux chiffres des minutes et deux chiffres des secondes)
+  affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+    tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+  }`;
+  // Idem pour l'affichage du temps de pause
+  affichagePause.innerText = `${Math.trunc(tempsDeRepos / 60)} : ${
+    tempsDeRepos % 60 < 10 ? `0${tempsDeRepos % 60}` : tempsDeRepos % 60
+  }`;
+
+  // Gérer les actions des boutons
+  btnGo.addEventListener("click", () => {
+    if (checkInterval === false) {
+      checkInterval = true;
+      // Pour ne pouvoir cliquer qu'une seule fois sur "commencer"
+
+      // Moins une seconde à chaque intervalle du "timer" travail
+      tempsInitial--;
+      affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+        tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+      }`;
+
+      let timer = setInterval(() => {
+        if (pause === false && tempsInitial > 0) {
+          tempsInitial--;
+          affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+            tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+          }`;
+          //  Relance à zéro le timer quand le cycle est fait
+        } else if (
+          pause === false &&
+          tempsDeRepos === 0 &&
+          tempsInitial === 0
+        ) {
+          tempsInitial = 1800;
+          tempsDeRepos = 300;
+          nbDeCycles++;
+          cycles.innerText = `Nombre de cycles ${nbDeCycles}`;
+          affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+            tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+          }`;
+          affichagePause.innerText = `${Math.trunc(tempsDeRepos / 60)} : ${
+            tempsDeRepos % 60 < 10 ? `0${tempsDeRepos % 60}` : tempsDeRepos % 60
+          }`;
+          // Si le temps du timer travail est à zéro on lance le timer repos
+        } else if (pause === false && tempsInitial === 0) {
+          tempsDeRepos--;
+          affichagePause.innerText = `${Math.trunc(tempsDeRepos / 60)} : ${
+            tempsDeRepos % 60 < 10 ? `0${tempsDeRepos % 60}` : tempsDeRepos % 60
+          }`;
+        }
+      }, 1000);
+
+      // Bouton reset qui réinitialise temps et cycles au clique
+      btnReset.addEventListener("click", () => {
+        clearInterval(timer);
+        // Remettre les données de départ + affichage
+        checkInterval = false;
+        tempsInitial = 1800;
+        tempsDeRepos = 300;
+        affichageTravail.innerText = `${Math.trunc(tempsInitial / 60)} : ${
+          tempsInitial % 60 < 10 ? `0${tempsInitial % 60}` : tempsInitial % 60
+        }`;
+        affichagePause.innerText = `${Math.trunc(tempsDeRepos / 60)} : ${
+          tempsDeRepos % 60 < 10 ? `0${tempsDeRepos % 60}` : tempsDeRepos % 60
+        }`;
+      });
+    } else {
+      return;
+    }
+  });
+
+  // Passe entre false et true pour activer et désactiver la pause
+  btnPause.addEventListener("click", () => {
+    if (pause === false) {
+      btnPause.innerText = "Play";
+    } else if (pause === true) {
+      btnPause.innerText = "Pause";
+    }
+    pause = !pause;
+  });
+
+  // TO-DO LISTE - PROGRAMMATION JAVASCRIPT
+  const form2 = document.querySelector("form");
+  const liste = document.querySelector("ul");
+  const input = document.querySelector("form input");
+  let toutesLesTaches = [];
+
+  // Écoute du formulaire
+  form2.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const text = input.value.trim();
+    if (text !== "") {
+      rajouterUneTache(text);
+      input.value = "";
+    }
+  });
+
+  function rajouterUneTache(text) {
+    const todo = {
+      text,
+      // La méthode Dat.now() renvoie le nb de millisecondes écoulées depuis le 1er janvier 1970
+      id: Date.now(),
+    };
+    afficherListe(todo);
+  }
+
+  function afficherListe(todo) {
+    const item = document.createElement("li");
+    item.setAttribute("data-key", todo.id);
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "checkbox");
+    input.addEventListener("click", tacheFaite);
+    item.appendChild(input);
+
+    const txt = document.createElement("span");
+    txt.innerText = todo.text;
+    item.appendChild(txt); // Ajout cet élement
+
+    // Le bouton image qui supprime tâche quand cliqué
+    const btn = document.createElement("button");
+    btn.addEventListener("click", supprimerTache);
+    const img = document.createElement("img");
+    img.setAttribute("src", "./assets/ressources/fermer.svg");
+    btn.appendChild(img);
+    item.appendChild(btn);
+
+    liste.appendChild(item);
+    toutesLesTaches.push(item);
+    console.log(toutesLesTaches);
+  }
+
+  // Mettre fin de tâche sur l'élément parent (case cochée)
+  function tacheFaite(e) {
+    e.target.parentNode.classList.toggle("finDeTache");
+  }
+
+  // Function servant à retirer une tâche ajoutée
+  function supprimerTache(e) {
+    toutesLesTaches.forEach((el) => {
+      // Garder un tableau de tous les ID qui n'ont pas été enlevés
+      if (
+        e.target.parentNode.getAttribute("data-key") ===
+        el.getAttribute("data-key")
+      ) {
+        el.remove();
+        toutesLesTaches = toutesLesTaches.filter(
+          (li) => li.dataset.key !== el.dataset.key,
+        );
+      }
+    });
+  }
+
+  // RECHERCHE D'UTILISATEUR GH/API - PROGRAMMATION JAVASCRIPT
+  const APICALL2 = "https://api.github.com/users/";
+  const affichage2 = document.querySelector(".affichage");
+  const form = document.querySelector(".form-github-recherche");
+  const inpRecherche = document.querySelector(".inp-recherche");
+
+  // Async/await
+  async function dataGithub(utilisateur) {
+    const reponse = await fetch(`${APICALL2}${utilisateur}`);
+    const data = await reponse.json(); // format JSON
+    // console.log(data);
+    creationCarte(data);
+  }
+  dataGithub("Louis75011");
+
+  // Autre template HTML
+  function creationCarte(user) {
+    const carteHTML = `
+    <div class="carte">
+        <img src="${user.avatar_url}" alt="icone avatar" class="avatar">
+        <h4>${user.name}</h4>
+        <ul class="cont-infos">
+            <li class="followers">Followers : ${user.followers}</li>
+            <li class="etoiles">Repos : ${user.public_repos}</li>
+            <li class="bio">Bio : ${user.bio}</li>
+        </ul>
+    </div>
+    `;
+    affichage2.innerHTML = carteHTML;
+  }
+
+  // Envoie des données formulaires
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (inpRecherche.value.length > 0) {
+      dataGithub(inpRecherche.value);
+      inpRecherche.value = "";
+    }
+  });
+
+  // JEU DE CARTES MÉMOIRES - PROGRAMMATION JAVASCRIPT
+  const cartes = document.querySelectorAll(".carte2");
+
+  let carteRetournee = false;
+  let premiereCarte, secondeCarte;
+  let verouillage2 = false; // Vérouille l'écran temporairement
+
+  cartes.forEach((carte) => {
+    carte.addEventListener("click", retourneCarte);
+  }); // Pour chaque clique de chaque carte de notre tableau
+
+  function retourneCarte() {
+    if (verouillage2) return;
+
+    this.childNodes[1].classList.toggle("active"); // Renvoie tous les enfants, lance la classe active faisant afficher la carte
+
+    // Si la carte est sur true
+    if (!carteRetournee) {
+      carteRetournee = true;
+      premiereCarte = this;
+      // Condition exécuté en stockant deux cartes cliquées
+      return;
+    }
+    carteRetournee = false;
+    secondeCarte = this; // Celle qu'on a cliqué
+    // console.log(premiereCarte, secondeCarte);
+    correspondance(); // Est-ce que ce sont les deux mêmes cartes ?
+  }
+
+  function correspondance() {
+    if (
+      premiereCarte.getAttribute("data-attr") ===
+      secondeCarte.getAttribute("data-attr")
+    ) {
+      // Retirer pour toute la partie si ce sont les deux mêmes iamges
+      premiereCarte.removeEventListener("click", retourneCarte);
+      secondeCarte.removeEventListener("click", retourneCarte);
+    } else {
+      verouillage2 = true;
+      setTimeout(() => {
+        premiereCarte.childNodes[1].classList.remove("active");
+        secondeCarte.childNodes[1].classList.remove("active");
+
+        verouillage2 = false;
+      }, 1200);
+    }
+  }
+
+  // Placement aléatoire de mes divs
+  function aleatoire() {
+    cartes.forEach((card) => {
+      let randomPos = Math.floor(Math.random() * 12);
+      card.style.order = randomPos;
+    });
+  }
+  aleatoire();
+
+  // VALIDATION DE FORMULAIRE - PROGRAMMATION JAVASCRIPT
+  const inpUtilisateur = document.querySelector(
+    ".form-groupe:nth-child(1) input",
+  );
+  const inpMail = document.querySelector(".form-groupe:nth-child(2) input");
+  const inpMdp = document.querySelector(".form-groupe:nth-child(3) input");
+  const inpConfirme = document.querySelector(".form-groupe:nth-child(4) input");
+  const allImg = document.querySelectorAll(".icone-verif");
+  const allSpan = document.querySelectorAll("span");
+  const allLigne = document.querySelectorAll(".ligne div");
+
+  // Validation nom - Quand on va écrire dans notre entrée
+  inpUtilisateur.addEventListener("input", (e) => {
+    // Valable si supérieur à 3 caractères
+    if (e.target.value.length >= 3) {
+      // Passe du CSS none à inline (apparaît en un bloc)
+      allImg[0].style.display = "inline";
+      allImg[0].src = "./assets/ressources/check.svg";
+      allSpan[0].style.display = "none";
+    } else {
+      allImg[0].style.display = "inline";
+      allImg[0].src = "./assets/ressources/error.svg";
+      allSpan[0].style.display = "inline";
+    }
+  });
+
+  // Validation email
+  inpMail.addEventListener("input", (e) => {
+    // REGEX pour forcer à mettre une lettre, un symbole et un chiffre
+    const regexEmail = /\S+@\S+\.\S+/;
+    // Si le texte tapé concorde avec la REGEX imposée
+    if (e.target.value.search(regexEmail) === 0) {
+      allImg[1].style.display = "inline";
+      allImg[1].src = "./assets/ressources/check.svg";
+      allSpan[1].style.display = "none";
+    } else if (e.target.value.search(regexEmail) === -1) {
+      allImg[1].style.display = "inline";
+      allImg[1].src = "./assets/ressources/error.svg";
+      allSpan[1].style.display = "inline";
+    }
+  });
+
+  // Validation de création du MDP
+  let valeurInp;
+  // Tout ce qui n'est pas ni lettre ni chiffre
+  const specialCar = /[^a-zA-Z0-9]/;
+  const alphabet = /[a-z]/i;
+  const chiffres = /[0-9]/;
+  // Voir le nombre de chaque type de caractère que l'on a dans notre imput
+  let objValidation = {
+    symbole: 0,
+    lettre: 0,
+    chiffre: 0,
+  };
+
+  // Gestion MDP
+  inpMdp.addEventListener("input", (e) => {
+    valeurInp = e.target.value;
+
+    if (valeurInp.search(specialCar) !== -1) {
+      objValidation.symbole = 1;
+    }
+    if (valeurInp.search(alphabet) !== -1) {
+      objValidation.lettre = 1;
+    }
+    if (valeurInp.search(chiffres) !== -1) {
+      objValidation.chiffre = 1;
+    }
+
+    // Vérifier quand on supprimer des chiffres si chiffre, symbole et lettre sont toujours là
+    if ((e.inputType = "deleteContentBackward")) {
+      if (valeurInp.search(specialCar) === -1) {
+        objValidation.symbole = 0;
+      }
+      if (valeurInp.search(alphabet) === -1) {
+        objValidation.lettre = 0;
+      }
+      if (valeurInp.search(chiffres) === -1) {
+        objValidation.chiffre = 0;
+      }
+    }
+
+    let testAll = 0;
+    // Boucle for in qui itère à travers un objet
+    for (const property in objValidation) {
+      if (objValidation[property] > 0) {
+        testAll++;
+      }
+    }
+    if (testAll < 3) {
+      allSpan[2].style.display = "inline";
+      allImg[2].style.display = "inline";
+      allImg[2].src = "./assets/ressources/error.svg";
+    } else {
+      allSpan[2].style.display = "none";
+      allImg[2].src = "./assets/ressources/check.svg";
+    }
+
+    // Renforcement de MDP
+    if (valeurInp.length <= 6 && valeurInp.length > 0) {
+      allLigne[0].style.display = "block";
+      allLigne[1].style.display = "none";
+      allLigne[2].style.display = "none";
+    } else if (valeurInp.length > 6 && valeurInp.length <= 9) {
+      allLigne[0].style.display = "block";
+      allLigne[1].style.display = "block";
+      allLigne[2].style.display = "none";
+    } else if (valeurInp.length > 9) {
+      allLigne[0].style.display = "block";
+      allLigne[1].style.display = "block";
+      allLigne[2].style.display = "block";
+      // Tout disparaît si l'entrée est vide
+    } else if (valeurInp.length === 0) {
+      allLigne[0].style.display = "none";
+      allLigne[1].style.display = "none";
+      allLigne[2].style.display = "none";
+    }
+  });
+
+  // Confirmation du MDP
+  inpConfirme.addEventListener("input", (e) => {
+    if (e.target.value.length === 0) {
+      allImg[3].style.display = "inline";
+      allImg[3].src = "./assets/ressources/error.svg";
+      // Strictement égal à la valeur de notre MDP du dessus
+    } else if (e.target.value === valeurInp) {
+      allImg[3].style.display = "inline";
+      allImg[3].src = "./assets/ressources/check.svg";
+    } else {
+      allImg[3].style.display = "inline";
+      allImg[3].src = "./assets/ressources/error.svg";
+    }
+  });
 }

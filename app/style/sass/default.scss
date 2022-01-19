@@ -182,6 +182,7 @@ body {
         justify-content: center;
         align-items: center;
     }
+
     // Toutes les cases
     .case {
         flex-shrink: 0; // Pas retrécir s'il n'y a plus d'espace
@@ -194,10 +195,12 @@ body {
         border: 3px solid #000;
         background: #fff;
     }
+
     // Case des images à mettre
     #premiere-case {
         margin-right: 30px;
     }
+
     // Poubelle
     .destroy {
         flex-shrink: 0;
@@ -212,7 +215,7 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
+
     .base {
         background-repeat: no-repeat;
         background-size: cover;
@@ -222,7 +225,7 @@ body {
         width: 200px;
         cursor: pointer;
     }
-    
+
     // Les trois containers du bas réceptionnant les photos
     .container-cases {
         margin-top: 50px;
@@ -240,28 +243,29 @@ body {
         margin: 0px auto 0;
         // On place ainsi les éléments absolute à l'intérieur
         position: relative;
-      }
-      
-      .cont-slides {
+    }
+
+    .cont-slides {
         width: 100%;
         height: 100%;
-      }
-      
-      .cont-slides img {
+    }
+
+    .cont-slides img {
         width: 100%;
         height: auto; // Image prend tout le container
         position: absolute;
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
-      }
-      .commandes {
+    }
+
+    .commandes {
         top: 0px;
         width: 100%;
         height: 100%;
         position: absolute;
-      }
-      
-      .commandes button {
+    }
+
+    .commandes button {
         position: absolute;
         width: 80px;
         height: 80px;
@@ -270,30 +274,35 @@ body {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-      }
-      .commandes img {
+    }
+
+    .commandes img {
         width: 30px;
         position: relative;
-      }
-      .commandes button:nth-child(1){
+    }
+
+    .commandes button:nth-child(1) {
         top: 50%;
         transform: translateY(-50%);
         // Premier bouton centrer
         left: 5px;
-      }
-      .commandes button:nth-child(2){
+    }
+
+    .commandes button:nth-child(2) {
         top: 50%;
         transform: translateY(-50%);
         right: 5px;
-      }
-      .commandes button:nth-child(1) img {
+    }
+
+    .commandes button:nth-child(1) img {
         left: -4px;
-      }
-      .commandes button:nth-child(2) img {
+    }
+
+    .commandes button:nth-child(2) img {
         right: -4px;
-      }
-      
-      .cercles {
+    }
+
+    .cercles {
         //   Ils sortent du slider
         position: absolute;
         top: 90%;
@@ -304,8 +313,9 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-      .cercle {
+    }
+
+    .cercle {
         width: 50px;
         height: 50%;
         border-radius: 50%;
@@ -313,14 +323,15 @@ body {
         cursor: pointer;
         outline: none;
         border: 1px solid #333;
-      }
-      
-      .active-cercle {
-        background: rgb(58,36,156);
-      }
-      .active {
-        opacity: 1!important;
-      }
+    }
+
+    .active-cercle {
+        background: rgb(58, 36, 156);
+    }
+
+    .active {
+        opacity: 1 !important;
+    }
 
     // MODULE VISUALISATEUR AUDIO
     audio {
@@ -417,5 +428,350 @@ body {
         width: 20px;
     }
 
-    // NOUVEAU MODULE
+    // RECHERCHE UTILISATEUR
+    form,
+    .affichage {
+        margin: 0 auto;
+        width: 50%;
+        max-width: 800px;
+        min-width: 400px;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .affichage {
+        display: flex;
+        justify-content: center;
+    }
+
+    .carte {
+        width: 500px;
+        height: auto;
+        position: relative;
+        margin-top: 100px;
+        padding-bottom: 20px;
+        border-radius: 5px;
+        background: #f1f1f1;
+    }
+
+    .avatar {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translate(60%, -50%);
+        background: #000;
+        border: 1px solid #000;
+    }
+
+    .cont-infos {
+        border-top: 1px dashed #000;
+        margin-top: 20px;
+        list-style-type: none;
+    }
+
+    li {
+        padding: 10px 20px;
+        text-align: justify;
+        font-size: 22px;
+    }
+
+    li:nth-child(1) {
+        margin-top: 15px;
+    }
+
+    // Jeu de cartes mémoires
+    .grille2 {
+        background: rgb(195, 195, 195);
+        display: grid;
+        // 3 rangés de 4 colonnes
+        grid-template: repeat(3, 200px) / repeat(4, 200px);
+        width: 800px;
+        height: 600px;
+        margin: 75px auto 0;
+    }
+
+    .carte2 {
+        background-color: transparent;
+        perspective: 1000px;
+        margin: 5px;
+    }
+
+    .double-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        // Animation de carte qui se retourne
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .face,
+    .arriere {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; // Pas voir l'arrière quand tourne
+        -webkit-backface-visibility: hidden;
+    }
+
+    .face {
+        background: #333;
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .face img {
+        width: 120px;
+    }
+
+    .arriere {
+        background: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 80px;
+    }
+
+    .active {
+        transform: rotateY(180deg)
+    }
+
+    // To-do liste
+    section#tdl form {
+        display: block;
+        margin: 0 auto;
+        width: 70%;
+        max-width: 1200px;
+        min-width: 400px;
+
+
+    }
+
+    form label {
+        display: block;
+        font-size: 25px;
+    }
+
+    form input {
+        width: 100%;
+        padding: 15px;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    form button {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    .liste-todo {
+        list-style-type: none;
+        margin: 20px auto 0;
+        width: 70%;
+        max-width: 1200px;
+        min-width: 400px;
+    }
+
+    li {
+        font-size: 20px;
+        width: 100%;
+        background: #f1f1f1;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        color: #333;
+        margin: 5px 0;
+    }
+
+    li input {
+        width: 40px;
+        height: 40px;
+        margin-left: 15px;
+    }
+
+    li button {
+        margin-left: auto;
+        padding: 5px;
+    }
+
+    button img {
+        width: 40px;
+        // Pour cliquer sur le bouton et non le fichier image
+        pointer-events: none;
+    }
+
+    li span {
+        font-size: 25px;
+        margin-left: 20px;
+    }
+
+    /* anim rayure */
+    li.finDeTache span {
+        text-decoration: line-through;
+    }
+
+    // APPLICATION POMODORO
+    .affichage2 {
+        background: #f1f1f1;
+        margin: 50px auto;
+        width: 70%;
+        max-width: 900px;
+        min-width: 500px;
+        display: flex; // Les blocs les uns à la suite des autres
+    }
+
+    .bloc {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; // Les uns en dessous des autres
+        font-size: 30px;
+        padding: 40px;
+    }
+
+    .bloc p:nth-child(1) {
+        font-weight: bold;
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .bloc:nth-child(1) {
+        border-right: 1px solid #333;
+    }
+
+    .bloc:nth-child(2) {
+        border-right: 1px solid rgb(103, 16, 16);
+    }
+
+    .container-btns {
+        margin: 0 auto;
+        width: 70%;
+        max-width: 900px;
+        min-width: 500px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        display: block;
+        padding: 18px;
+        font-size: 25px;
+        width: 200px;
+    }
+
+    // VALIDATION FORMULAIRE
+    section#vf .box-login {
+        flex-shrink: 0;
+        background: #fff;
+        border-radius: 5px;
+    }
+
+    section#vf .form-groupe {
+        position: relative;
+    }
+
+    section#vf label {
+        margin: 5px 23px;
+        font-size: 20px;
+        padding: 10px 0 5px 0;
+        display: block;
+        position: relative;
+    }
+
+    section#vf input {
+        display: block;
+        margin: 10px 20px 20px 20px;
+        outline: 0;
+        background: rgb(226, 226, 226);
+        width: 400px;
+        border: 0;
+        padding: 10px 12px;
+        border-radius: 3px;
+        font-size: 22px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    section#vf .icone-verif {
+        width: 30px;
+        position: absolute;
+        right: 27px;
+        top: 57px;
+        display: none;
+    }
+
+    section#vf .message-alerte {
+        margin: 0px 23px;
+        color: crimson;
+        display: none;
+    }
+
+    section#vf button {
+        display: block;
+        margin: 30px auto;
+        outline: 0;
+        background: rgb(250, 165, 9);
+        width: 90%;
+        border: 0;
+        padding: 15px;
+        border-radius: 3px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    section#vf button:hover {
+        background: rgb(252, 181, 49);
+    }
+
+    section#vf button:active {
+        background: rgb(250, 165, 9);
+    }
+
+    section#vf .ligne {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .l1,
+    .l2,
+    .l3 {
+        width: 30%;
+        height: 5px;
+        margin: 15px 5px 20px;
+        position: relative;
+        display: none;
+    }
+
+    .l1 {
+        background: rgb(182, 182, 13);
+    }
+
+    .l2 {
+        background: rgb(151, 85, 85);
+    }
+
+    .l3 {
+        background: green;
+    }
+
+    section#vf .ligne span {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10px;
+    }
+
 }

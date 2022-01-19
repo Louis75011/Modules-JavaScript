@@ -1,5 +1,5 @@
-# Modules for Vanilla JS
+# Modules in Vanilla JS
 
-## Projects in JavaScript by Enzo Ustariz lesson's
+## Projects in JavaScript by Enzo Ustariz (lesson)
 
-### Adaptations SPA + CSS in SASS + HTML in JS
+### Adaptations SPA + CSS in SASS + HTML in JS INJECTION
